@@ -68,6 +68,7 @@ function SignIn() {
                             <Link to="/features/authentication/signup">Sign Up</Link>
                         </p>
                     </div>
+                    <Link to="/">Go to homepage</Link>
                 </form>
             </div>
         </div>
