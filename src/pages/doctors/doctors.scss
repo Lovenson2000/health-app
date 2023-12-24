@@ -1,0 +1,26 @@
+.doctors {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+    margin: 2rem 3rem;
+
+    .doctors-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        place-items: center;
+
+        @media (max-width: 1350px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width: 1080px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 672px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@import "../../styles/variables.scss";
+
+.container {
+
+    .card-container {
+        margin: 5rem;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        justify-content: space-between;
+
+        .stat-card {
+           
+            letter-spacing: 1px;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: .4rem;
+            -webkit-box-shadow: 8px 8px 24px -15px rgba(66, 68, 90, 1);
+            -moz-box-shadow: 8px 8px 24px -15px rgba(66, 68, 90, 1);
+            box-shadow: 8px 8px 24px -15px rgba(66, 68, 90, 1);
+
+
+            h3 {
+                color: $main-dark;
+                font-weight: 400;
+
+            }
+
+            h4 {
+                color: $main-grey;
+                font-weight: 800;
+            }
+        }
+    }
+}

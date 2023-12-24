@@ -1,0 +1,105 @@
+@import "../../styles/variables.scss";
+
+.why-mainContainer {
+    background-color: $bg-light-beige;
+    padding-block: 2rem;
+    height: 65hv;
+    margin-top: 2rem;
+
+    .why-container {
+        margin-inline: 6rem;
+        display: flex;
+        flex-direction: column;
+
+        .why-upper {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 50%;
+            width: 100%;
+            margin-block: 3rem;
+
+            .upper-graphic {
+                border-radius: 6px;
+                background-color: $light-green;
+                margin-top: 4rem;
+                align-self: flex-start;
+
+                .upper-bg {
+                    padding: 3rem;
+                    position: relative;
+                    width: 18rem;
+                    height: 7rem;
+
+                    img {
+                        position: absolute;
+                        height: 18rem;
+                        top: -9rem;
+                        left: 4.5rem;
+                    }
+                }
+            }
+
+            .upper-text {
+                margin: inline 5rem;
+
+                h1 {
+                    font-size: 3rem;
+                    color: $dark-grey-text;
+                    text-align: center;
+                    font-weight: 400;
+                    line-height: 2rem;
+                    list-style: none;
+                    margin: 1rem;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .4rem;
+
+                    li {
+
+                        span {
+                            margin-inline-end: .5rem;
+                            font-size: .8rem;
+                            font-weight: 100;
+                            border-radius: 50%;
+                            width: 1.2rem;
+                            height: 1.2rem;
+                            color: white;
+                            background-color: $main-color-green;
+                        }
+
+                        color: #000;
+                        text-align: center;
+                        font-weight: 400;
+                        font-size: 1.1rem;
+                        list-style: none;
+                    }
+                }
+            }
+        }
+
+        .why-bottom {
+            display: flex;
+            align-self: flex-start;
+            flex-direction: column;
+            gap: 1.4rem;
+            height: 50%;
+            margin-bottom: 2rem;
+
+            h1 {
+                letter-spacing: 2px;
+                font-weight: 500;
+            }
+
+            p {
+                font-size: 1.1rem;
+                line-height: 1.8rem;
+                font-weight: 400;
+                padding-right: 20rem;
+            }
+        }
+    }
+}

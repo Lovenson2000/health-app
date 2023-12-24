@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+
+.cta-button {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 13px 14px;
+    text-align: center;
+    max-width: 17rem;
+    color: #fff;
+    border-radius: 6px;
+    background-color: $main-color-green;
+}

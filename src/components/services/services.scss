@@ -1,0 +1,68 @@
+@import "../../styles/variables.scss";
+
+.services {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
+
+    .services-heading {
+        text-align: center;
+        font-size: 2.5rem;
+        text-align: center;
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(to right,
+                $main-color-green,
+                $light-green,
+            );
+
+    }
+
+    .services-container {
+        margin-inline: 5rem;
+        display: grid;
+        gap: 2rem;
+        padding: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+
+        .service {
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            padding: .7rem;
+            border: .5px solid $main-grey;
+            border-style: dashed;
+            box-shadow: 1px -2px 11px -5px $main-dark;
+
+            .icon-container {
+                padding: .2rem;
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $light-green;
+
+                svg {
+                    color: white;
+                }
+            }
+
+            h2 {
+                font-size: 1.4rem;
+                letter-spacing: 1.8px;
+                color: $dark-theme-bg;
+            }
+
+            p {
+                line-height: 1.4rem;
+                color: $dark-theme-bg;
+            }
+        }
+    }
+}

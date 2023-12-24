@@ -1,0 +1,32 @@
+@import "../../styles/variables.scss";
+
+.about-feedback {
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6rem;
+
+    background-image: url('..//..//assets/images/caring.png');
+    background-size: cover;
+    background-position: cover;
+    background-repeat: no-repeat;
+
+    .feedback-header {
+        width: 40rem;
+        background-color: white;
+        color: $dark-theme-bg;
+        text-align: center;
+        padding: .5rem 1rem;
+        border-radius: 5px;
+
+    }
+    .feedback-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+    }
+}

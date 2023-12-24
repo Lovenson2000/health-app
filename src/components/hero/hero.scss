@@ -1,0 +1,54 @@
+@import "../../styles/variables.scss";
+
+.hero-container {
+    height: 65dvh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5rem;
+    gap: 3rem;
+
+    .hero-text {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 2rem;
+
+        h3 {
+            font-weight: 600;
+            color: $light-green;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 4.5rem;
+
+            span {
+                color: $light-green;     
+            }
+        }
+    }
+
+    .hero-graphic {
+        width: 50%;
+        display: flex;
+        align-items: flex-end;
+
+        .background {
+            background-color: $light-green;
+            border-radius: 50%;
+            height: 27rem;
+            width: 27rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                object-fit: contain;
+                height: 27rem;
+            }
+        }
+    }
+}

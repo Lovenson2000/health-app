@@ -1,0 +1,102 @@
+@import "../../styles/variables.scss";
+
+.about-upper {
+    background-color: $light-green;
+    height: 40rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .about-logo {
+        background-color: $light-green;
+        display: flex;
+        padding: 2rem 1rem;
+        align-items: center;
+        gap: 0.75rem;
+        margin-inline: 6rem;
+
+        img {
+            width: 2rem;
+        }
+
+        a {
+            color: #FFF;
+            font-family: DM Sans;
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.875rem;
+            text-decoration: none;
+        }
+    }
+
+    .about-content {
+        margin-inline: 6rem;
+        height: 34rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .content-text {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            gap: 1rem;
+
+            h3 {
+                font-weight: 600;
+                color: white;
+            }
+    
+            h1 {
+                font-size: 3rem;
+                font-weight: 700;
+                line-height: 4rem;
+                color: white;
+            }
+
+            p {
+                color: white;
+                font-weight: 300;   
+            }
+
+            a {
+                text-decoration: none;
+                text-transform: uppercase;
+                padding: .7rem 1rem;
+                max-width: 12rem;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                background-color: $main-color-green;
+            }
+        }
+
+        .content-graphic {
+            .graphic-container {
+                position: relative;
+
+                img {
+                    height: 34.2rem;
+                    position: relative;
+                    z-index: 3;  
+                }
+
+                .purple-bg {
+                    position: absolute;
+                    width: 22rem;
+                    top: 1rem;
+                    right: 8rem;
+                    z-index: 2;     
+                }
+
+                .white-bg {
+                    position: absolute;
+                    width: 20rem;
+                    top: 3rem;
+                    right: 12.5rem;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+}
