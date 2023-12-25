@@ -156,6 +156,16 @@ export const doctors = [
         availability: 'Wed, Fri, Sun',
         url: "https://images.pexels.com/photos/15962796/pexels-photo-15962796/free-photo-of-doctor-in-scrubs-and-a-stethoscope-around-her-neck.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
+    {
+        id: 15,
+        name: 'Dr. Nick',
+        specialty: 'Dentist',
+        location: 'Tainan',
+        phone: '555-3210',
+        email: 'dr.moore@example.com',
+        availability: 'Thu, Sun',
+        url: "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
 ];
 
 export const statistics = [

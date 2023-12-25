@@ -7,18 +7,27 @@ import './appointments.scss';
 import { Link } from 'react-router-dom';
 import EmptyAppointment from '../../components/empty/EmptyAppointment';
 import supabase from '../../supabase';
+import { useAuth } from '../../features/authentication/AuthContext'; // Import the useAuth hook
 
 function Apointments() {
   const [isOpen, setIsOpen] = useState(false);
   const [appointments, setAppointments] = useState([]);
+  const { user } = useAuth(); // Get the logged-in user from the AuthContext
 
   useEffect(() => {
-    fetchAppointments();
-  }, []);
+    if (user) {
+      fetchAppointments(); // Fetch appointments only if a user is logged in
+    }
+  }, [user]);
 
   const fetchAppointments = async () => {
     try {
-      const { data, error } = await supabase.from('appointments').select('*');
+      // Fetch appointments for the logged-in user
+      const { data, error } = await supabase
+        .from('appointments')
+        .select('*')
+        .eq('user_id', user.id); // Assuming there's a 'user_id' column in your appointments table
+
       if (error) {
         console.error('Error fetching appointments:', error.message);
       } else {
@@ -35,9 +44,10 @@ function Apointments() {
 
   const handleCreateAppointment = async (formData) => {
     try {
+      // Include the user_id when creating a new appointment
       const { data, error } = await supabase
         .from('appointments')
-        .insert({ fullName: formData.fullName, doctorName: formData.doctor })
+        .insert({ fullName: formData.fullName, doctorName: formData.doctor, user_id: user.id })
         .select('*')
         .single();
 
@@ -58,11 +68,12 @@ function Apointments() {
         .from('appointments')
         .delete()
         .eq('id', id);
-
+  
       if (error) {
         console.error('Error deleting appointment:', error.message);
       } else {
-        fetchAppointments();
+        // Update the state by filtering out the deleted appointment
+        setAppointments((prevAppointments) => prevAppointments.filter(appointment => appointment.id !== id));
       }
     } catch (error) {
       console.error('Error deleting appointment:', error.message);
@@ -80,7 +91,7 @@ function Apointments() {
               <SingleAppointment
                 appointment={appointment}
                 key={index}
-                deleteAppointment={deleteAppointment}
+                deleteAppointment={() => deleteAppointment(appointment.id)}
               />
             ))}
           </div>
@@ -121,9 +132,7 @@ function SingleAppointment({ appointment, updateStatus, deleteAppointment }) {
       <h3> <span>Date:</span> <span>{formattedDate}</span></h3>
       <h3> <span>Status:</span> <span>{appointment.status ? "completed" : "Not completed"}</span></h3>
       <div className="card-icons">
-        <span
-          onClick={() => deleteAppointment(appointment.id)}
-        >
+        <span onClick={deleteAppointment}>
           <MdDelete />
         </span>
         <span

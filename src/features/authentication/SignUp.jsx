@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import supabase from '../../supabase';
 import "./signUp.scss";
 
 
 function SignUp() {
     const { register, handleSubmit, getValues, formState: { errors }, } = useForm();
-
+    const navigate = useNavigate();
     const onSubmit = async () => {
 
         try {
@@ -20,7 +20,7 @@ function SignUp() {
           if (error) {
             console.error('Error signing up:', error.message);
           } else {
-            console.log('User signed up successfully:', data);
+            navigate('/appointment');
           }
         } catch (error) {
           console.error('Unexpected error:', error.message);
