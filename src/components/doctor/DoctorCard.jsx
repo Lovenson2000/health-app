@@ -7,6 +7,11 @@ import { Link } from "react-router-dom";
 
 
 function DoctorCard({doctor}) {
+  const makeACall = () => {
+    const phoneNumber = doctor.phone;
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
   return (
     <div className="doctor-card">
         <div className="doctor-graphic">
@@ -18,7 +23,9 @@ function DoctorCard({doctor}) {
             <h3 className="doctor-address"><span><CiLocationOn /></span>{doctor.location}</h3>
             <p className="doctor-email"><span><MdOutlineMail /></span>{doctor.email}</p>
         </div>
-        <Link className="doctor-btn">Make a call</Link>
+        <button className="doctor-btn" onClick={makeACall}>
+        Make a call
+      </button>
     </div>
   )
 }
