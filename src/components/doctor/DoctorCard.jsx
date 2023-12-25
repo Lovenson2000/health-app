@@ -3,7 +3,6 @@ import { IoIosTimer } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineMail } from "react-icons/md";
 import "./doctorCard.scss";
-import { Link } from "react-router-dom";
 
 
 function DoctorCard({doctor}) {
@@ -23,9 +22,9 @@ function DoctorCard({doctor}) {
             <h3 className="doctor-address"><span><CiLocationOn /></span>{doctor.location}</h3>
             <p className="doctor-email"><span><MdOutlineMail /></span>{doctor.email}</p>
         </div>
-        <button className="doctor-btn" onClick={makeACall}>
+        <a className="doctor-btn" href={`tel:${doctor.phone}`}>
         Make a call
-      </button>
+      </a>
     </div>
   )
 }
