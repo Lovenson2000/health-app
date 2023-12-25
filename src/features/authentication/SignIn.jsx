@@ -23,6 +23,7 @@ function SignIn() {
           if (error) throw error;
           login();
           navigate("/");
+          console.log(data);
 
         } catch (error) {
           console.error(error);

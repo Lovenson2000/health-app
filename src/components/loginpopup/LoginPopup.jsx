@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IoCloseSharp } from 'react-icons/io5';
+
 import './loginPopup.scss';
 
 function LoginPopup() {

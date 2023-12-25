@@ -1,0 +1,110 @@
+@import "../../styles/variables.scss";
+
+.appointments {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+
+    h2 {
+        font-size: 2.3rem;
+        color: $dark-theme-bg;
+    }
+
+    .appointments-list {
+
+        .appointments-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+    }
+
+    .appointment-form-container {
+        position: relative;
+        width: 80%;
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .btn {
+        margin: 2rem;
+        background-color: $main-color-green;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        border-radius: 9px;
+        outline: none;
+        padding: .6rem 3rem;
+        font-size: 1.5rem;
+        font-weight: 400;
+        transition: all .5s ease-in-out;
+
+        &:hover {
+            background-color: #35bf9f;
+        }
+    }
+
+    .up {
+        position: absolute;
+        bottom: -15rem;
+        right: 17rem;
+
+    }
+
+    a {
+        color: $main-color-green;
+        text-decoration: none;
+
+        &:hover {
+            color: #0ed8a9;
+        }
+    }
+
+}
+
+
+.appointment-card {
+    position: relative;
+    background-color: white;
+    padding: 1.3rem 1rem;
+    border-radius: 4px;
+    display: flex;
+    color: $dark-theme-bg;
+    flex-direction: column;
+    gap: .5rem;
+    -webkit-box-shadow: -1px -1px 23px -1px rgba(184, 184, 184, 0.7);
+    -moz-box-shadow: -1px -1px 23px -1px rgba(184, 184, 184, 0.7);
+    box-shadow: -1px -1px 23px -1px rgba(184, 184, 184, 0.7);
+
+    h3 {
+        display: flex;
+        width: 14rem;
+        align-items: center;
+        justify-content: space-between;
+        font-size: .9rem;
+        font-weight: 400;
+    }
+
+    .card-icons {
+        position: absolute;
+        bottom: 0;
+        right: 1rem;
+        display: flex;
+        gap: .5rem;
+
+        .complete {
+            color: $main-color-green;
+        }
+        span {
+            cursor: pointer;
+        }
+    }
+}

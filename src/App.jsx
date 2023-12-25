@@ -18,11 +18,12 @@ function Layout() {
 
   const location = useLocation();
   const hideNavbarOnAbout = location.pathname === '/about';
+  const hideFooterOnAppointment = location.pathname === "/appointment";
   return (
     <div className="app">
-      {!hideNavbarOnAbout && <Navbar />}
+      {!hideNavbarOnAbout && !hideFooterOnAppointment && <Navbar />}
       <Outlet />
-      <Footer />
+      {!hideFooterOnAppointment && <Footer />}
     </div>
   );
 }
