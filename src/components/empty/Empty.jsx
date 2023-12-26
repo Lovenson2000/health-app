@@ -1,8 +1,12 @@
 import "./empty.scss";
 
-function Empty({parameter}) {
+function Empty() {
   return (
-    <div className="empty">There is no doctor with that {parameter}</div>
+    <div className="empty">
+      <h1>Oops!🥲 There is no doctor with that Parameter</h1>
+      <h1>Please search with another parameter...</h1>
+    </div>
+
   )
 }
 

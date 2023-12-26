@@ -22,21 +22,26 @@ function Apointments() {
 
   const fetchAppointments = async () => {
     try {
-      // Fetch appointments for the logged-in user
-      const { data, error } = await supabase
-        .from('appointments')
-        .select('*')
-        .eq('user_id', user.id); // Assuming there's a 'user_id' column in your appointments table
+      if (user) {
+        const { data, error } = await supabase
+          .from('appointments')
+          .select('*')
+          .eq('user_id', user.id);
 
-      if (error) {
-        console.error('Error fetching appointments:', error.message);
-      } else {
-        setAppointments(data || []);
+        if (error) {
+          console.error('Error fetching appointments:', error.message);
+        } else {
+          setAppointments(data || []);
+        }
       }
     } catch (error) {
       console.error('Error fetching appointments:', error.message);
     }
   };
+
+  useEffect(() => {
+    fetchAppointments();
+  }, [user]);
 
   const updateAppointments = (newAppointments) => {
     setAppointments((prevAppointments) => [...prevAppointments, ...newAppointments]);
@@ -44,7 +49,6 @@ function Apointments() {
 
   const handleCreateAppointment = async (formData) => {
     try {
-      // Include the user_id when creating a new appointment
       const { data, error } = await supabase
         .from('appointments')
         .insert({ fullName: formData.fullName, doctorName: formData.doctor, user_id: user.id })
@@ -56,6 +60,8 @@ function Apointments() {
       } else if (data) {
         updateAppointments([data]);
         setIsOpen(false);
+        // Fetch appointments after creating a new appointment
+        fetchAppointments();
       }
     } catch (error) {
       console.error('Error creating appointment:', error.message);
@@ -73,10 +79,11 @@ function Apointments() {
       if (error) {
         console.error('Error deleting appointment:', error.message);
       } else {
-        
         setAppointments((prevAppointments) =>
           prevAppointments.filter((appointment) => appointment.id !== id)
         );
+        // Fetch appointments after deleting an appointment
+        fetchAppointments();
       }
     } catch (error) {
       console.error('Error deleting appointment:', error.message);

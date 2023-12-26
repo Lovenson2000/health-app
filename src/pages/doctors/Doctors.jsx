@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Search from '../../components/search/Filter';
 import "./doctors.scss";
 import { doctors } from '../../utils/data';
 import DoctorCard from '../../components/doctor/DoctorCard';
+import Filter from '../../components/search/Filter';
+import Empty from '../../components/empty/Empty'; // Import the Empty component
 
 function Doctors() {
   const [filteredDoctors, setFilteredDoctors] = useState(doctors);
@@ -21,12 +22,18 @@ function Doctors() {
   };
 
   return (
-    <div className='doctors'>
-      <Search onSearch={handleSearch} />
-      <div className='doctors-container'>
-        {filteredDoctors.map((doctor) => (
-          <DoctorCard key={doctor.id} doctor={doctor} />
-        ))}
+    <div className={filteredDoctors.length > 0 ? "doctors" : "doctors no-doctors"}>
+      <Filter onSearch={handleSearch} />
+      <div className={filteredDoctors.length > 0 ? "doctors-container" : "doctors no-doctors"}>
+        {filteredDoctors.length > 0 ? (
+          // Render DoctorCard components when there are filteredDoctors
+          filteredDoctors.map((doctor) => (
+            <DoctorCard key={doctor.id} doctor={doctor} />
+          ))
+        ) : (
+          // Render Empty component when filteredDoctors is empty
+          <Empty />
+        )}
       </div>
     </div>
   );
