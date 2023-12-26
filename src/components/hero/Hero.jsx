@@ -9,7 +9,7 @@ function Hero() {
             <div className="hero-text">
                 <h3>Welcome to WeHealthy</h3>
                 <h1>Your Journey to <span>Better</span> Health Starts Here</h1>
-                <CtaButton>Make Appointments</CtaButton>
+                <CtaButton element="/appointment">Make Appointments</CtaButton>
             </div>
             <div className="hero-graphic">
                 <div className="background">

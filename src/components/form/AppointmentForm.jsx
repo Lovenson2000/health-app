@@ -3,6 +3,7 @@ import React from 'react'
 import { doctors } from "../../utils/data";
 import { useState } from "react";
 import supabase from "../../supabase";
+import { useNavigate } from "react-router-dom";
 
 function AppointmentForm({setIsOpen, updateAppointments}) {
 
@@ -29,8 +30,7 @@ function AppointmentForm({setIsOpen, updateAppointments}) {
     }
 
     // Validate phoneNumber
-    const phoneNumberRegex = /^\d{3}-\d{3}-\d{3}$/;
-    if (!formData.phoneNumber || !phoneNumberRegex.test(formData.phoneNumber)) {
+    if (!formData.phoneNumber) {
       alert('Please enter a valid phone number (e.g., 123-45-678)');
       isValid = false;
     }
@@ -44,6 +44,8 @@ function AppointmentForm({setIsOpen, updateAppointments}) {
     return isValid;
 
   }
+  const navigate = useNavigate();
+
   const handleCreateAppointment = async () => {
     try {
       const { data, error } = await supabase
@@ -57,6 +59,7 @@ function AppointmentForm({setIsOpen, updateAppointments}) {
       } else if (data) {
         updateAppointments([data]);
         setIsOpen(false);
+        navigate('/appointment');
       }
     } catch (error) {
       console.error('Error creating appointment:', error.message);
@@ -104,7 +107,7 @@ function AppointmentForm({setIsOpen, updateAppointments}) {
         <input
           name="phoneNumber"
           type="tel"
-          placeholder="123-45-678"
+          placeholder="123-456-789"
           required
           value={formData.phoneNumber}
           onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}

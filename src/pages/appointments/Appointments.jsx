@@ -64,16 +64,19 @@ function Apointments() {
 
   const deleteAppointment = async (id) => {
     try {
-      const { error } = await supabase
+      const { error, data } = await supabase
         .from('appointments')
         .delete()
         .eq('id', id);
-  
+
+      console.log('Delete Response:', data);
       if (error) {
         console.error('Error deleting appointment:', error.message);
       } else {
-        // Update the state by filtering out the deleted appointment
-        setAppointments((prevAppointments) => prevAppointments.filter(appointment => appointment.id !== id));
+        
+        setAppointments((prevAppointments) =>
+          prevAppointments.filter((appointment) => appointment.id !== id)
+        );
       }
     } catch (error) {
       console.error('Error deleting appointment:', error.message);

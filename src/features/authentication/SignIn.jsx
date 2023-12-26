@@ -22,7 +22,7 @@ function SignIn() {
       
           if (error) throw error;
           login();
-          navigate("/");
+          navigate("/appointment");
           console.log(data);
 
         } catch (error) {
