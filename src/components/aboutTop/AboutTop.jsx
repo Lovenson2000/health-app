@@ -18,7 +18,7 @@ function AboutTop() {
                 <div className="content-text">
                     <h3>Our Mission</h3>
                     <h1>We Connect You With The Best Doctors</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Making healthcare benefits accessible to everyone</p>
                     <Link to="/features/authentication/signup">Join Us</Link>
                 </div>
 
