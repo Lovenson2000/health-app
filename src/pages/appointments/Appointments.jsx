@@ -82,7 +82,7 @@ function Apointments() {
         setAppointments((prevAppointments) =>
           prevAppointments.filter((appointment) => appointment.id !== id)
         );
-        // Fetch appointments after deleting an appointment
+        
         fetchAppointments();
       }
     } catch (error) {
